@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portofolio - Febriansyah</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f5f3ff;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 40px;
+
+            background-color: #ffffff;
+
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            color: #7c3aed;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+
+            list-style: none;
+        }
+
+        nav a {
+            color: #374151;
+            font-weight: 500;
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #7c3aed;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 45px;
+            padding: 90px 20px;
+
+            background: linear-gradient(
+                135deg,
+                #ede9fe,
+                #f5f3ff,
+                #ffffff
+            );
+        }
+
+        .hero-img {
+            width: 180px;
+            height: 180px;
+
+            object-fit: cover;
+            border-radius: 50%;
+
+            border: 5px solid #8b5cf6;
+
+            box-shadow:
+                0 0 0 8px #ddd6fe,
+                0 10px 30px rgba(124, 58, 237, 0.25);
+        }
+
+        .hero-text h1 {
+            margin-bottom: 5px;
+
+            color: #111827;
+            font-size: 2.3rem;
+        }
+
+        .hero-text h3 {
+            margin-bottom: 15px;
+
+            color: #7c3aed;
+            font-size: 1.2rem;
+        }
+
+        .hero-text p {
+            max-width: 550px;
+            margin-bottom: 20px;
+
+            color: #4b5563;
+        }
+
+        .btn-primary {
+            display: inline-block;
+
+            padding: 10px 22px;
+
+            background-color: #7c3aed;
+            color: #ffffff;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #6d28d9;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .container {
+            max-width: 1000px;
+
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            margin-bottom: 30px;
+
+            color: #111827;
+
+            font-size: 1.9rem;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: "";
+
+            display: block;
+
+            width: 60px;
+            height: 3px;
+
+            margin: 10px auto 0;
+
+            background-color: #8b5cf6;
+
+            border-radius: 10px;
+        }
+
+
+        .about-card {
+            padding: 30px;
+
+            background-color: #ffffff;
+
+            border-left: 5px solid #8b5cf6;
+            border-radius: 12px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-card p {
+            color: #4b5563;
+        }
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill-item {
+            padding: 20px;
+
+            background-color: #ffffff;
+
+            border: 1px solid #ddd6fe;
+            border-radius: 10px;
+
+            color: #374151;
+            font-weight: bold;
+            text-align: center;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+
+            transition: 0.3s;
+        }
+
+        .skill-item:hover {
+            border-color: #8b5cf6;
+
+            color: #7c3aed;
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+        }
+
+        .hobby-card {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .hobby-item {
+            padding: 25px;
+
+            background-color: #ffffff;
+
+            border: 1px solid #ddd6fe;
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+
+            transition: 0.3s;
+        }
+
+        .hobby-item:hover {
+            border-color: #8b5cf6;
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+        }
+
+        .hobby-item h3 {
+            margin-bottom: 8px;
+
+            color: #7c3aed;
+        }
+
+        .hobby-item p {
+            color: #6b7280;
+
+            font-size: 0.9rem;
+        }
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .project-card {
+            position: relative;
+
+            padding: 25px;
+
+            background-color: #ffffff;
+
+            border: 1px solid #ddd6fe;
+            border-radius: 12px;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #8b5cf6;
+
+            transform: translateY(-6px);
+
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+        }
+
+        .project-badge {
+            position: absolute;
+
+            top: 15px;
+            right: 15px;
+
+            padding: 4px 10px;
+
+            background-color: #ede9fe;
+            color: #7c3aed;
+
+            border-radius: 20px;
+
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .project-card h3 {
+            padding-right: 80px;
+
+            margin-bottom: 10px;
+
+            color: #111827;
+        }
+
+        .project-card p {
+            color: #6b7280;
+
+            font-size: 0.95rem;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding: 25px;
+
+            background-color: #111827;
+            color: #d1d5db;
+
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 10px;
+                padding: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+
+                padding: 60px 20px;
+
+                text-align: center;
+            }
+
+            .hero-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hobby-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 1.6rem;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+
+        <a href="#" class="logo">
+            Febri.Dev
+        </a>
+
+        <nav>
+            <ul>
+
+                <li>
+                    <a href="#tentang">Tentang</a>
+                </li>
+
+                <li>
+                    <a href="#keahlian">Keahlian</a>
+                </li>
+
+                <li>
+                    <a href="#hobi">Hobi</a>
+                </li>
+
+                <li>
+                    <a href="#proyek">Proyek</a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <img
+            src="https://via.placeholder.com/180"
+            alt="Foto Profil Febriansyah"
+            class="hero-img"
+        >
+
+        <div class="hero-text">
+
+            <h1>
+                Halo, Saya Febriansyah 👋
+            </h1>
+
+            <h3>
+                Siswa XI PPLG | Web Developer Pemula
+            </h3>
+
+            <p>
+                Saya adalah siswa SMK yang tertarik dengan dunia teknologi,
+                pemrograman, dan pengembangan website. Saya juga memiliki
+                ketertarikan besar pada dunia musik dan gitar.
+            </p>
+
+            <a
+                href="mailto:emailkamu@gmail.com"
+                class="btn-primary"
+            >
+                Hubungi Saya
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="container" id="tentang">
+
+        <h2 class="section-title">
+            Tentang Saya
+        </h2>
+
+        <div class="about-card">
+
+            <p>
+                Saya merupakan siswa kelas XI jurusan Pengembangan
+                Perangkat Lunak dan Gim (PPLG). Saya memiliki ketertarikan
+                terhadap pemrograman, pembuatan website, dan teknologi.
+
+                <br><br>
+
+                Saya termasuk orang yang cenderung introvert dan terkadang
+                masih merasa gugup ketika berbicara di depan banyak orang.
+                Namun, saya terus berusaha untuk meningkatkan kemampuan
+                komunikasi dan kepercayaan diri melalui kegiatan sekolah,
+                organisasi, dan kegiatan musik.
+
+                <br><br>
+
+                Selain dunia pemrograman, saya juga aktif di bidang musik
+                dan bermain gitar. Bagi saya, teknologi dan musik merupakan
+                dua hal yang sama-sama bisa menjadi tempat untuk belajar,
+                berkreasi, dan mengembangkan diri.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="container" id="keahlian">
+
+        <h2 class="section-title">
+            Keahlian Saya
+        </h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-item">
+                HTML & CSS
+            </div>
+
+            <div class="skill-item">
+                Basic JavaScript
+            </div>
+
+            <div class="skill-item">
+                C++
+            </div>
+
+            <div class="skill-item">
+                C#
+            </div>
+
+            <div class="skill-item">
+                Git & GitHub
+            </div>
+
+            <div class="skill-item">
+                Web Development
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="container" id="hobi">
+
+        <h2 class="section-title">
+            Hobi & Minat
+        </h2>
+
+        <div class="hobby-card">
+
+            <div class="hobby-item">
+
+                <h3>
+                    🎸 Musik
+                </h3>
+
+                <p>
+                    Bermain gitar dan belajar mengembangkan kemampuan
+                    bermusik bersama band.
+                </p>
+
+            </div>
+
+
+            <div class="hobby-item">
+
+                <h3>
+                    💻 Teknologi
+                </h3>
+
+                <p>
+                    Mempelajari pemrograman, website, komputer,
+                    dan perkembangan teknologi.
+                </p>
+
+            </div>
+
+
+            <div class="hobby-item">
+
+                <h3>
+                    🎮 Gaming
+                </h3>
+
+                <p>
+                    Bermain game dan menikmati berbagai cerita serta
+                    dunia yang ada di dalam game.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="container" id="proyek">
+
+        <h2 class="section-title">
+            Proyek Saya
+        </h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+
+                <span class="project-badge">
+                    Web
+                </span>
+
+                <h3>
+                    Website Portofolio
+                </h3>
+
+                <p>
+                    Membuat website portofolio pribadi menggunakan HTML
+                    dan CSS sebagai media untuk memperkenalkan diri
+                    dan kemampuan.
+                </p>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <span class="project-badge">
+                    PPLG
+                </span>
+
+                <h3>
+                    Project Pemrograman
+                </h3>
+
+                <p>
+                    Mengerjakan berbagai tugas pemrograman menggunakan
+                    bahasa C++, C#, HTML, dan teknologi lainnya.
+                </p>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <span class="project-badge">
+                    Music
+                </span>
+
+                <h3>
+                    Guitar & Band Project
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan bermain gitar dan mempersiapkan
+                    berbagai penampilan bersama band dalam kegiatan sekolah
+                    maupun acara lainnya.
+                </p>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <span class="project-badge">
+                    Personal
+                </span>
+
+                <h3>
+                    Belajar & Berkembang
+                </h3>
+
+                <p>
+                    Terus mempelajari hal baru di bidang teknologi,
+                    musik, dan berbagai kemampuan lain untuk mengembangkan diri.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>
+            &copy; 2026 Febriansyah - Portofolio Siswa XI PPLG
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
